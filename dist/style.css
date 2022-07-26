@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+}
+
+.form-container {
+  display: grid;
+  width: 100%;
+  height: 50px;
+  align-items: center;
+  grid-template-columns: 4fr 2fr;
+  grid-template-rows: 3fr;
+  grid-template-areas:
+    "sf sf sf sf sb sb"
+    "sf sf sf sf sb sb"
+    "sf sf sf sf sb sb";
+}
+
+.search-field {
+  grid-area: "sf";
+  height: 25px;
+  margin: 10px;
+}
+
+.search-btn {
+  grid-area: "sb";
+  height: 30px;
+  margin: 10px;
+}
+
+#cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  height: 500px;
+  width: 30%;
+  margin: 5px;
+  background-color: red;
+  text-align: center;
+}
