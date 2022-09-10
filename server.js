@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const path = require("path");
-const urllib = require("urllib");
 const axios = require("axios");
 
 const teamToIDs = {
@@ -11,6 +10,7 @@ const teamToIDs = {
   suns: "1610612756",
 };
 
+app.use(express.json());
 app.use(express.static(path.join(__dirname, "dist")));
 app.use(express.static(path.join(__dirname, "node_modules")));
 
@@ -29,6 +29,12 @@ app.get("/teams/:teamName", (request, response) => {
     response.send(teamPlayers);
   });
 });
+
+app.put('/team', function(request, response){
+   let team = request.body;
+   teamToIDs[team.teamName] = team.teamId
+   response.end()
+})
 
 const PORT = 3000;
 app.listen(PORT, function () {
